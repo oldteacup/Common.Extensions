@@ -1,0 +1,14 @@
+﻿
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <ResourceDictionary.MergedDictionaries>
+        <!--<ResourceDictionary Source="pack://application:,,,/Common.Extensions.WPF;component/ConvertResource/ConvertGeneric.xaml"/>-->
+    </ResourceDictionary.MergedDictionaries>
+    <Boolean2VisibilityConverter x:Key="Boolean2VisibilityConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <Boolean2VisibilityReConverter x:Key="Boolean2VisibilityReConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <CalculateConverter x:Key="CalculateConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <EmptyConverter x:Key="EmptyConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <NullReferenceConverter x:Key="NullReferenceConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <ObjectEqualConverter x:Key="ObjectEqualConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <ObjectEqualReConverter x:Key="ObjectEqualReConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <RatioConverter x:Key="RatioConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+</ResourceDictionary>

@@ -1,0 +1,37 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0-windows</TargetFramework>
+		<Nullable>enable</Nullable>
+		<UseWPF>true</UseWPF>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Update="Converters\ConvertGeneric.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>ConvertGeneric.xaml</LastGenOutput>
+		</None>
+		<None Update="Generic.tt">
+			<Generator>TextTemplatingFileGenerator</Generator>
+			<LastGenOutput>Generic.xaml</LastGenOutput>
+		</None>
+	</ItemGroup>
+
+	<ItemGroup>
+		<Page Update="Converters\ConvertGeneric.xaml">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>ConvertGeneric.tt</DependentUpon>
+		</Page>
+		<Page Update="Generic.xaml">
+			<DesignTime>True</DesignTime>
+			<AutoGen>True</AutoGen>
+			<DependentUpon>Generic.tt</DependentUpon>
+		</Page>
+	</ItemGroup>
+
+</Project>
