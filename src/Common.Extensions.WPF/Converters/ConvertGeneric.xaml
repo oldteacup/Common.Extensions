@@ -13,4 +13,5 @@
     <ObjectEqualConverter x:Key="ObjectEqualConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
     <ObjectEqualReConverter x:Key="ObjectEqualReConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
     <RatioConverter x:Key="RatioConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
+    <VisibilityReConverter x:Key="VisibilityReConverter" xmlns="clr-namespace:Common.Extensions.WPF.Converters" />
 </ResourceDictionary>
