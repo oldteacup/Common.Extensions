@@ -92,11 +92,14 @@ namespace Common.Extensions.WPF.EnumerationExtensions
 
         public bool Visible { get; set; }
 
-        public EnumerationAttribute(string name, object value = null, bool visible = true)
+        public object Parameter { get; set; }
+
+        public EnumerationAttribute(string name, object value = null, bool visible = true, object parameter = null)
         {
             Name = name;
             Value = value;
             Visible = visible;
+            Parameter = parameter;
         }
     }
 }
