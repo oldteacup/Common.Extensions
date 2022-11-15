@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Data;
@@ -13,22 +14,6 @@ namespace Common.Extensions.WPF.EnumerationExtensions
     {
 
         private Type _enumType;
-
-        /// <summary>
-        /// 
-        /// </summary>
-        /// <param name="enumType"></param>
-        /// <exception cref="ArgumentNullException"></exception>
-        /// <remarks>
-        /// {Binding Source = { local:EnumerationProvider { x:Type local:Enum } }}
-        /// </remarks>
-        public EnumerationProviderExtension(Type enumType)
-        {
-            if (enumType == null)
-                throw new ArgumentNullException("enumType");
-
-            EnumType = enumType;
-        }
 
         public Type EnumType
         {
@@ -46,6 +31,23 @@ namespace Common.Extensions.WPF.EnumerationExtensions
                 _enumType = value;
             }
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="enumType"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        /// <remarks>
+        /// {Binding Source = { local:EnumerationProvider { x:Type local:Enum } }}
+        /// </remarks>
+        public EnumerationProviderExtension(Type enumType)
+        {
+            if (enumType == null)
+                throw new ArgumentNullException("enumType");
+
+            EnumType = enumType;
+        }
+
 
         public override object ProvideValue(IServiceProvider serviceProvider)
         {
@@ -88,15 +90,12 @@ namespace Common.Extensions.WPF.EnumerationExtensions
 
         public object Value { get; set; }
 
-        public object Parameter { get; set; }
-
         public bool Visible { get; set; }
 
-        public EnumerationAttribute(string name, object value = null, object parameter = null, bool visible = true)
+        public EnumerationAttribute(string name, object value = null, bool visible = true)
         {
             Name = name;
             Value = value;
-            Parameter = parameter;
             Visible = visible;
         }
     }
