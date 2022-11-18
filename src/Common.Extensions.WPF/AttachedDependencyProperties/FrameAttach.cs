@@ -36,9 +36,9 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
 
         static FrameAttach()
         {
-            IsEnabledFrameMapProperty = DependencyProperty.RegisterAttached("IsEnabledFrameMap", typeof(bool), typeof(Frame), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, IsEnabledNavigationServicePropertyChanged));
-            NavigationServiceKeyProperty = DependencyProperty.RegisterAttached("NavigationServiceKey", typeof(string), typeof(System.Windows.Controls.Frame), new FrameworkPropertyMetadata(Guid.NewGuid().ToString(), FrameworkPropertyMetadataOptions.Inherits));
-            DisableBackspaceProperty = DependencyProperty.RegisterAttached("DisableBackspace", typeof(bool), typeof(Frame), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, DisableBackspacePropertyChanged));
+            IsEnabledFrameMapProperty = DependencyProperty.RegisterAttached("IsEnabledFrameMap", typeof(bool), typeof(FrameAttach), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, IsEnabledNavigationServicePropertyChanged));
+            NavigationServiceKeyProperty = DependencyProperty.RegisterAttached("NavigationServiceKey", typeof(string), typeof(FrameAttach), new FrameworkPropertyMetadata(Guid.NewGuid().ToString(), FrameworkPropertyMetadataOptions.Inherits));
+            DisableBackspaceProperty = DependencyProperty.RegisterAttached("DisableBackspace", typeof(bool), typeof(FrameAttach), new FrameworkPropertyMetadata(false, FrameworkPropertyMetadataOptions.Inherits, DisableBackspacePropertyChanged));
         }
 
         private static void IsEnabledNavigationServicePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
