@@ -18,7 +18,7 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
         public static void SetIsEnabledFrameMap(DependencyObject element, bool value) => element.SetCurrentValue(IsEnabledFrameMapProperty, value);
 
         /// <summary>
-        /// 导航服务类关键字
+        /// 导航服务类关键字（用于获取导航服务时作为区分。默认）
         /// </summary>
         public static readonly DependencyProperty NavigationServiceKeyProperty;
         public static string GetNavigationServiceKey(DependencyObject element) => (string)element.GetValue(NavigationServiceKeyProperty);
@@ -43,9 +43,8 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
 
         private static void IsEnabledNavigationServicePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is Frame frame)
+            if (d is Frame frame && e.NewValue is string key)
             {
-                string key = GetNavigationServiceKey(d);
                 _frames.AddOrUpdate(key, frame, (key, value) => frame);
                 frame.Unloaded += delegate (object sender, RoutedEventArgs e)
                 {
@@ -56,9 +55,8 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
 
         private static void DisableBackspacePropertyChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
-            if (d is Frame frame)
+            if (d is Frame frame && e.NewValue is bool isDisableBackspace)
             {
-                bool isDisableBackspace = GetDisableBackspace(d);
                 frame.JournalOwnership = System.Windows.Navigation.JournalOwnership.OwnsJournal;
                 frame.Navigated -= Frame_Navigated;
                 if (isDisableBackspace)
@@ -76,6 +74,10 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
             }
         }
 
+        /// <summary>
+        /// 获取默认Frame
+        /// </summary>
+        /// <returns></returns>
         public static Frame? GetDefaultFrame()
         {
             return _frames.Values.FirstOrDefault();

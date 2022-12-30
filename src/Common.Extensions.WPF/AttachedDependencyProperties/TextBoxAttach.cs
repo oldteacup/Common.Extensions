@@ -7,6 +7,9 @@ namespace Common.Extensions.WPF.AttachedDependencyProperties
 {
     public class TextBoxAttach
     {
+        /// <summary>
+        /// TextBox输入正则Pattern属性
+        /// </summary>
         public static readonly DependencyProperty PatternProperty;
         public static string GetPattern(DependencyObject element) => (string)element.GetValue(PatternProperty);
         public static void SetPattern(DependencyObject element, string value) => element.SetCurrentValue(PatternProperty, value);
